@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Semana de la Ingeniería</title>
+    <!-- Tus enlaces a CSS son vitales para el diseño -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container">
+            <div class="row">
+                <div class="two columns u-pull-right">
+                    <ul>
+                        <li class="submenu">
+                            <img src="img/carrito.png" id="img-carrito">
+                            <div id="carrito">
+                                <table id="lista-carrito" class="u-full-width">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--Hero-->
+    <div id="hero" class="container hero-section">
+        <div class="row">
+            <!-- Columna Izquierda: Textos -->
+            <div class="seven columns info-hero">
+                <p class="subtitulo-dorado">OFERTA DE</p>
+                <h1 class="titulo-principal">CONFERENCIAS<br>INGENIERÍA</h1>
+                <p class="descripcion-hero">UNAM | FES Aragón | División de las Ciencias Físico-Matemáticas y de las Ingenierías</p>
+                
+                <div class="beneficios">
+                    <div class="beneficio">
+                        <img src="img/aprende.png" class="icono-beneficio" alt="aprende">
+                        <span class="texto-beneficio">Aprende</span>
+                    </div>
+                    <div class="beneficio">
+                        <img src="img/escucha.png" class="icono-beneficio" alt="escucha">
+                        <span class="texto-beneficio">Escucha</span>
+                    </div>
+                    <div class="beneficio">
+                        <img src="img/participa.png" class="icono-beneficio" alt="participa">
+                        <p class="texto-beneficio">Participa</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna Derecha: Imagen -->
+            <div class="five columns grafico-hero">
+                <img src="img/Auditorio.png" alt="Auditorio" class="imagen-redondeada u-full-width">
+            </div>
+        </div>
+    </div>
+
+    <!--Conferencias-->
+    <div id="lista-conferencias" class="container">
+        <!--primera fila -->
+        <div class="row">
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Ciberseguridad y prevención</h4>
+                        <p>BBVA</p>
+                        <p>Auditorio DUACyD</p>
+                        <p>Martes 22 | 5:00 pm a 6:00 pm</p>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Digitalización</h4>
+                        <p>BBVA</p>
+                        <p>Auditorio DUACyD</p>
+                        <p>Martes 22 | 6:00 pm a 7:00 pm</p>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>La IA y tu dinero</h4>
+                        <p>BBVA</p>
+                        <p>Auditorio DUACyD</p>
+                        <p>Miércoles 23 | 5:00 pm a 6:00 pm</p>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Segunda fila-->
+        <div class="row" style="margin-top: 30px;">
+            <div class="four columns">
+                <div class="card">
+                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Sostenibilidad en los datos</h4>
+                        <p>Dr. Omar Mendoza</p>
+                        <p>Auditorio DUACyD</p>
+                        <p>Jueves 24 | 1:30 pm a 3:00 pm</p>
+                        <img src="img/estrellas.png">
+                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar Al Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <p>Integrantes:</p>
+                <p>Obet</p>
+                <p>David Hernández Reyes</p>
+                <p>Ana Guadalupe Martínez Colón</p>
+                <p>Equipo 9</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/codigo.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+
+html {
+    font-size: 62.5%; 
+}
+
+body {
+    background-color: #f4f1ea; 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   HEADER Y CARRITO DE COMPRAS
+   ========================================================================== */
+header {
+    padding: 20px 0 10px 0;
+    background: white;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 750px) {
+    header {
+        text-align: left;
+    }
+}
+
+.submenu {
+    position: relative;
+}
+
+.submenu #carrito {
+    display: none;
+}
+
+.submenu:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.borrar-curso {
+    background-color: crimson;
+    border-radius: 50%;
+    padding: 2px 7px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   SECCIÓN HERO
+   ========================================================================== */
+.hero-section {
+    padding: 60px 0;
+    border-bottom: 2px solid #e1d8c1;
+}
+
+.info-hero {
+    margin-top: 30px;
+}
+
+.subtitulo-dorado {
+    color: #c29b62; 
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.titulo-principal {
+    color: #0b2343; 
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.descripcion-hero {
+    color: #5a6b82;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Beneficios con iconos */
+.beneficios {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #c29b62;
+    padding-top: 20px;
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+}
+
+.icono-beneficio {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.texto-beneficio {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0b2343;
+}
+
+.imagen-redondeada {
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   TARJETAS DE CONFERENCIAS
+   ========================================================================== */
+#lista-conferencias {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card {
+    text-align: left;
+    border: 1px solid #e1e1e1;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.card img.imagen-curso {
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.info-card {
+    padding: 0;
+}
+
+.info-card h4 {
+    color: #0b2343;
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    min-height: 50px; 
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 1.3rem;
+}
+
+/* Estilos de precios */
+.info-card .precio {
+    text-decoration: line-through; /* Tacha el precio original */
+    font-size: 1.6rem;
+    margin-top: 15px;
+    color: #999;
+}
+
+.info-card .precio span {
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: #0b2343;
+    text-decoration: none; /* Quita el tachado para el precio final */
+}
+
+/* Botón de agregar al carrito */
+.button-primary.agregar-carrito {
+    background-color: #0b2343;
+    border-color: #0b2343;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.button-primary.agregar-carrito:hover {
+    background-color: #163a6e;
+    border-color: #163a6e;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    background-color: white;
+    border-top: 3px solid #e1d8c1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 5px;
+    color: #0b2343;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
