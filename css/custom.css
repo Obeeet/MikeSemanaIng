@@ -61,6 +61,37 @@ header {
     font-weight: bold;
 }
 
+.header-flex {
+    display: flex;
+    align-items: center; /* Centra verticalmente los logos y el carrito */
+    justify-content: space-between;
+}
+
+.logos-universidad {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Crea el espacio entre el logo de la FES y el de la UNAM */
+}
+
+.logo-header {
+    height: 60px; /* Ajusta la altura de los logos para que no se vean gigantes */
+    object-fit: contain;
+    padding-left: 15%;
+}
+
+.menu-carrito {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 40px;
+}
+
+.icono-carrito {
+    width: 35px; /* Puedes subir o bajar este valor para cambiar el tamaño del carrito */
+    cursor: pointer;
+}
+
 /* ==========================================================================
    SECCIÓN HERO
    ========================================================================== */
@@ -69,8 +100,14 @@ header {
     border-bottom: 2px solid #e1d8c1;
 }
 
+.hero-content-wrapper {
+    display: flex;
+    align-items: center; /* Esto centra verticalmente los textos con la imagen */
+}
+
 .info-hero {
     margin-top: 30px;
+    padding-right: 50px;
 }
 
 .subtitulo-dorado {
@@ -101,14 +138,22 @@ header {
 /* Beneficios con iconos */
 .beneficios {
     display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #c29b62;
-    padding-top: 20px;
+    align-items: center;
+    border-top: none; 
+    padding-top: 10px;
+    margin-top: 20px;
 }
 
 .beneficio {
     display: flex;
     align-items: center;
+    margin-right: 15px;
+}
+
+.separador-beneficio {
+    color: #c29b62; 
+    margin-left: 15px;
+    font-weight: bold;
 }
 
 .icono-beneficio {
@@ -128,6 +173,25 @@ header {
     border-radius: 24px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     object-fit: cover;
+    margin-left: 100px;
+}
+
+.grafico-hero {
+    position: relative;
+}
+
+.contenedor-imagen-curva {
+    border-radius: 150px 0 0 150px; 
+    overflow: hidden; 
+    height: 350px; 
+    box-shadow: -10px 0 20px rgba(0,0,0,0.1); /* Sombra hacia la izquierda */
+}
+
+.imagen-auditorio {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
 }
 
 /* ==========================================================================
@@ -157,6 +221,7 @@ header {
 .card img.imagen-curso {
     border-radius: 6px;
     margin-bottom: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .info-card {

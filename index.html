@@ -13,11 +13,19 @@
 <body>
     <header id="header" class="header">
         <div class="container">
-            <div class="row">
-                <div class="two columns u-pull-right">
-                    <ul>
+            <!-- Agregamos la clase header-flex para alinear todo horizontalmente -->
+            <div class="row header-flex">
+                
+                <!-- Columna Izquierda: Logos de la Universidad -->
+                <div class="six columns logos-universidad">
+                    <img src="img/logo_fes.png" alt="FES Aragón" class="logo-header">
+                </div>
+
+                <!-- Columna Derecha: Carrito -->
+                <div class="six columns">
+                    <ul class="u-pull-right menu-carrito">
                         <li class="submenu">
-                            <img src="img/carrito.png" id="img-carrito">
+                            <img src="img/carrito.png" id="img-carrito" class="icono-carrito">
                             <div id="carrito">
                                 <table id="lista-carrito" class="u-full-width">
                                     <thead>
@@ -36,15 +44,17 @@
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </header>
 
     <!--Hero-->
     <div id="hero" class="container hero-section">
-        <div class="row">
-            <!-- Columna Izquierda: Textos -->
-            <div class="seven columns info-hero">
+        <div class="row hero-content-wrapper">
+            
+            <!-- Columna Izquierda: Textos y Beneficios -->
+            <div class="six columns info-hero">
                 <p class="subtitulo-dorado">OFERTA DE</p>
                 <h1 class="titulo-principal">CONFERENCIAS<br>INGENIERÍA</h1>
                 <p class="descripcion-hero">UNAM | FES Aragón | División de las Ciencias Físico-Matemáticas y de las Ingenierías</p>
@@ -53,21 +63,28 @@
                     <div class="beneficio">
                         <img src="img/aprende.png" class="icono-beneficio" alt="aprende">
                         <span class="texto-beneficio">Aprende</span>
+                        <span class="separador-beneficio">|</span>
                     </div>
                     <div class="beneficio">
                         <img src="img/escucha.png" class="icono-beneficio" alt="escucha">
                         <span class="texto-beneficio">Escucha</span>
+                        <span class="separador-beneficio">|</span>
                     </div>
                     <div class="beneficio">
                         <img src="img/participa.png" class="icono-beneficio" alt="participa">
-                        <p class="texto-beneficio">Participa</p>
+                        <span class="texto-beneficio">Participa</span>
                     </div>
                 </div>
             </div>
-            <!-- Columna Derecha: Imagen -->
-            <div class="five columns grafico-hero">
-                <img src="img/Auditorio.png" alt="Auditorio" class="imagen-redondeada u-full-width">
+            
+            <!-- Columna Derecha: Imagen del Auditorio -->
+            <div class="six columns grafico-hero">
+                <!-- Se añade un div contenedor para aplicar el recorte curvo -->
+                <div class="contenedor-imagen-curva">
+                     <img src="img/auditorio.png" alt="Auditorio DUACyD" class="imagen-auditorio u-full-width">
+                </div>
             </div>
+            
         </div>
     </div>
 
@@ -77,7 +94,7 @@
         <div class="row">
             <div class="four columns">
                 <div class="card">
-                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <img src="img/ciberseguridad.png" class="imagen-curso u-full-width">
                     <div class="info-card">
                         <h4>Ciberseguridad y prevención</h4>
                         <p>BBVA</p>
@@ -91,7 +108,7 @@
             </div>
             <div class="four columns">
                 <div class="card">
-                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <img src="img/digitalizacion.png" class="imagen-curso u-full-width">
                     <div class="info-card">
                         <h4>Digitalización</h4>
                         <p>BBVA</p>
@@ -105,7 +122,7 @@
             </div>
             <div class="four columns">
                 <div class="card">
-                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <img src="img/la_ia.png" class="imagen-curso u-full-width">
                     <div class="info-card">
                         <h4>La IA y tu dinero</h4>
                         <p>BBVA</p>
@@ -123,7 +140,7 @@
         <div class="row" style="margin-top: 30px;">
             <div class="four columns">
                 <div class="card">
-                    <img src="img/libro_1.jpg" class="imagen-curso u-full-width">
+                    <img src="img/sostenibilidad.png" class="imagen-curso u-full-width">
                     <div class="info-card">
                         <h4>Sostenibilidad en los datos</h4>
                         <p>Dr. Omar Mendoza</p>
