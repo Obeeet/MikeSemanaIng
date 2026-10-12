@@ -1,4 +1,6 @@
-
+/* ==========================================================================
+   1. ESTILOS GLOBALES
+   ========================================================================== */
 html {
     font-size: 62.5%; 
 }
@@ -14,7 +16,7 @@ ul {
 }
 
 /* ==========================================================================
-   HEADER Y CARRITO DE COMPRAS
+   2. HEADER Y CARRITO DE COMPRAS
    ========================================================================== */
 header {
     padding: 20px 0 10px 0;
@@ -27,6 +29,45 @@ header {
     header {
         text-align: left;
     }
+}
+
+/* Fuerza al header a abarcar toda la pantalla */
+header .container {
+    width: 100% !important;
+    max-width: 100% !important; 
+    padding: 0 40px !important; 
+}
+
+.header-flex {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.logos-universidad {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.logo-header {
+    height: 60px; 
+    object-fit: contain;
+    padding-left: 15%;
+}
+
+/* --- Lógica y Estilos del Carrito --- */
+.menu-carrito {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 40px;
+}
+
+.icono-carrito {
+    width: 35px;
+    cursor: pointer;
 }
 
 .submenu {
@@ -61,53 +102,45 @@ header {
     font-weight: bold;
 }
 
-.header-flex {
-    display: flex;
-    align-items: center; /* Centra verticalmente los logos y el carrito */
-    justify-content: space-between;
-}
-
-.logos-universidad {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Crea el espacio entre el logo de la FES y el de la UNAM */
-}
-
-.logo-header {
-    height: 60px; /* Ajusta la altura de los logos para que no se vean gigantes */
-    object-fit: contain;
-    padding-left: 15%;
-}
-
-.menu-carrito {
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin-right: 40px;
-}
-
-.icono-carrito {
-    width: 35px; /* Puedes subir o bajar este valor para cambiar el tamaño del carrito */
-    cursor: pointer;
-}
-
 /* ==========================================================================
-   SECCIÓN HERO
+   3. SECCIÓN HERO (PRINCIPAL)
    ========================================================================== */
 .hero-section {
     padding: 60px 0;
     border-bottom: 2px solid #e1d8c1;
 }
 
-.hero-content-wrapper {
-    display: flex;
-    align-items: center; /* Esto centra verticalmente los textos con la imagen */
+/* Extiende el Hero hasta el borde derecho de la pantalla */
+#hero.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 40px !important; 
+    padding-right: 0 !important; 
 }
 
+.hero-content-wrapper {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Proporción de la cuadrícula: 40% Textos, 60% Imagen */
+.hero-content-wrapper .six.columns:first-child {
+    width: 40% !important;
+    margin-left: 0 !important;
+}
+
+.hero-content-wrapper .six.columns:last-child {
+    width: 60% !important;
+    margin-left: 0 !important;
+}
+
+/* --- Lado Izquierdo: Textos y Beneficios --- */
 .info-hero {
     margin-top: 30px;
     padding-right: 50px;
+    padding-left: 0; 
 }
 
 .subtitulo-dorado {
@@ -135,7 +168,6 @@ header {
     margin-bottom: 30px;
 }
 
-/* Beneficios con iconos */
 .beneficios {
     display: flex;
     align-items: center;
@@ -169,22 +201,17 @@ header {
     color: #0b2343;
 }
 
-.imagen-redondeada {
-    border-radius: 24px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    object-fit: cover;
-    margin-left: 100px;
-}
-
+/* --- Lado Derecho: Imagen Curva del Auditorio --- */
 .grafico-hero {
     position: relative;
 }
 
 .contenedor-imagen-curva {
-    border-radius: 150px 0 0 150px; 
+    height: 380px; 
+    width: 100%;
+    border-radius: 200px 0 0 200px;
     overflow: hidden; 
-    height: 350px; 
-    box-shadow: -10px 0 20px rgba(0,0,0,0.1); /* Sombra hacia la izquierda */
+    box-shadow: -10px 0 20px rgba(0,0,0,0.1); 
 }
 
 .imagen-auditorio {
@@ -194,8 +221,9 @@ header {
     object-position: center; 
 }
 
+
 /* ==========================================================================
-   TARJETAS DE CONFERENCIAS
+   4. TARJETAS DE CONFERENCIAS
    ========================================================================== */
 #lista-conferencias {
     margin-top: 50px;
@@ -206,13 +234,13 @@ header {
     text-align: left;
     border: 1px solid #e1e1e1;
     background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    padding: 20px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* Efecto al pasar el mouse sobre la tarjeta */
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.1);
@@ -243,38 +271,48 @@ header {
     font-size: 1.3rem;
 }
 
-/* Estilos de precios */
+.estrellas {
+    width: 80px; 
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* --- Precios --- */
 .info-card .precio {
-    text-decoration: line-through; /* Tacha el precio original */
+    text-decoration: line-through; 
     font-size: 1.6rem;
-    margin-top: 15px;
     color: #999;
+    margin-top: 10px;
+    margin-bottom: 25px; 
 }
 
 .info-card .precio span {
     font-weight: 700;
-    font-size: 2.4rem;
-    color: #0b2343;
-    text-decoration: none; /* Quita el tachado para el precio final */
+    font-size: 2.2rem;
+    color: #333;
+    text-decoration: none; 
 }
 
-/* Botón de agregar al carrito */
+/* --- Botón Agregar al Carrito --- */
 .button-primary.agregar-carrito {
-    background-color: #0b2343;
-    border-color: #0b2343;
-    border-radius: 6px;
+    background-color: #33C3F0; 
+    border-color: #33C3F0; 
+    color: white;
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+    padding: 0;
+    border-radius: 4px;
     margin-top: 15px;
-    font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .button-primary.agregar-carrito:hover {
-    background-color: #163a6e;
-    border-color: #163a6e;
+    background-color: #1EAEDB; 
+    border-color: #1EAEDB;
 }
 
 /* ==========================================================================
-   FOOTER
+   5. FOOTER
    ========================================================================== */
 footer {
     background-color: white;

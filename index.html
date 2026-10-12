@@ -5,27 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Semana de la Ingeniería</title>
-    <!-- Tus enlaces a CSS son vitales para el diseño -->
+
+    <!-- ==========================================================================
+         HOJAS DE ESTILO (CSS)
+         ========================================================================== -->
+    <!-- 1. Normalize: Unifica los estilos base en todos los navegadores -->
     <link rel="stylesheet" href="css/normalize.css">
+    <!-- 2. Skeleton: Framework ligero que nos da el sistema de cuadrículas -->
     <link rel="stylesheet" href="css/skeleton.css">
+    <!-- 3. Custom: Nuestros estilos y colores personalizados -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+
+    <!-- ==========================================================================
+         1. HEADER Y CARRITO DE COMPRAS
+         ========================================================================== -->
     <header id="header" class="header">
         <div class="container">
-            <!-- Agregamos la clase header-flex para alinear todo horizontalmente -->
             <div class="row header-flex">
                 
-                <!-- Columna Izquierda: Logos de la Universidad -->
+                <!-- Sección Izquierda: Logo Institucional -->
                 <div class="six columns logos-universidad">
                     <img src="img/logo_fes.png" alt="FES Aragón" class="logo-header">
                 </div>
 
-                <!-- Columna Derecha: Carrito -->
+                <!-- Sección Derecha: Menú del Carrito Desplegable -->
                 <div class="six columns">
                     <ul class="u-pull-right menu-carrito">
                         <li class="submenu">
                             <img src="img/carrito.png" id="img-carrito" class="icono-carrito">
+                            
+                            <!-- Contenedor oculto -->
                             <div id="carrito">
                                 <table id="lista-carrito" class="u-full-width">
                                     <thead>
@@ -49,16 +60,19 @@
         </div>
     </header>
 
-    <!--Hero-->
+    <!-- ==========================================================================
+         2. SECCIÓN PRINCIPAL (HERO)
+         ========================================================================== -->
     <div id="hero" class="container hero-section">
         <div class="row hero-content-wrapper">
             
-            <!-- Columna Izquierda: Textos y Beneficios -->
+            <!-- Mitad Izquierda: Textos de bienvenida y beneficios -->
             <div class="six columns info-hero">
                 <p class="subtitulo-dorado">OFERTA DE</p>
                 <h1 class="titulo-principal">CONFERENCIAS<br>INGENIERÍA</h1>
                 <p class="descripcion-hero">UNAM | FES Aragón | División de las Ciencias Físico-Matemáticas y de las Ingenierías</p>
                 
+                <!-- Lista de beneficios con iconos -->
                 <div class="beneficios">
                     <div class="beneficio">
                         <img src="img/aprende.png" class="icono-beneficio" alt="aprende">
@@ -77,9 +91,8 @@
                 </div>
             </div>
             
-            <!-- Columna Derecha: Imagen del Auditorio -->
+            <!-- Mitad Derecha: Imagen panorámica con recorte curvo -->
             <div class="six columns grafico-hero">
-                <!-- Se añade un div contenedor para aplicar el recorte curvo -->
                 <div class="contenedor-imagen-curva">
                      <img src="img/auditorio.png" alt="Auditorio DUACyD" class="imagen-auditorio u-full-width">
                 </div>
@@ -88,10 +101,15 @@
         </div>
     </div>
 
-    <!--Conferencias-->
+    <!-- ==========================================================================
+         3. CARTELERA DE CONFERENCIAS (TARJETAS)
+         ========================================================================== -->
     <div id="lista-conferencias" class="container">
-        <!--primera fila -->
+        
+        <!-- --- PRIMERA FILA --- -->
         <div class="row">
+            
+            <!-- Tarjeta 1 -->
             <div class="four columns">
                 <div class="card">
                     <img src="img/ciberseguridad.png" class="imagen-curso u-full-width">
@@ -100,12 +118,15 @@
                         <p>BBVA</p>
                         <p>Auditorio DUACyD</p>
                         <p>Martes 22 | 5:00 pm a 6:00 pm</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" class="estrellas">
                         <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                        <!-- El atributo data-id es crucial para que JS identifique qué curso se agregó -->
                         <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
                     </div>
                 </div>
             </div>
+            
+            <!-- Tarjeta 2 -->
             <div class="four columns">
                 <div class="card">
                     <img src="img/digitalizacion.png" class="imagen-curso u-full-width">
@@ -114,12 +135,14 @@
                         <p>BBVA</p>
                         <p>Auditorio DUACyD</p>
                         <p>Martes 22 | 6:00 pm a 7:00 pm</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" class="estrellas">
                         <p class="precio">$100 <span class="u-pull-right">$75</span></p>
                         <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
                     </div>
                 </div>
             </div>
+            
+            <!-- Tarjeta 3 -->
             <div class="four columns">
                 <div class="card">
                     <img src="img/la_ia.png" class="imagen-curso u-full-width">
@@ -128,16 +151,19 @@
                         <p>BBVA</p>
                         <p>Auditorio DUACyD</p>
                         <p>Miércoles 23 | 5:00 pm a 6:00 pm</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" class="estrellas">
                         <p class="precio">$100 <span class="u-pull-right">$75</span></p>
                         <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
                     </div>
                 </div>
             </div>
-        </div>
+            
+        </div> <!-- FIN PRIMERA FILA -->
 
-        <!--Segunda fila-->
-        <div class="row" style="margin-top: 30px;">
+        <!-- --- SEGUNDA FILA --- -->
+        <div class="row">
+            
+            <!-- Tarjeta 4 -->
             <div class="four columns">
                 <div class="card">
                     <img src="img/sostenibilidad.png" class="imagen-curso u-full-width">
@@ -146,20 +172,24 @@
                         <p>Dr. Omar Mendoza</p>
                         <p>Auditorio DUACyD</p>
                         <p>Jueves 24 | 1:30 pm a 3:00 pm</p>
-                        <img src="img/estrellas.png">
+                        <img src="img/estrellas.png" class="estrellas">
                         <p class="precio">$100 <span class="u-pull-right">$75</span></p>
                         <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar Al Carrito</a>
                     </div>
                 </div>
             </div>
-        </div>
+            
+        </div> <!-- FIN SEGUNDA FILA -->
     </div>
     
+    <!-- ==========================================================================
+         4. PIE DE PÁGINA (FOOTER)
+         ========================================================================== -->
     <footer>
         <div class="container">
             <div class="row">
                 <p>Integrantes:</p>
-                <p>Obet</p>
+                <p>Obet Pérez Hernández</p>
                 <p>David Hernández Reyes</p>
                 <p>Ana Guadalupe Martínez Colón</p>
                 <p>Equipo 9</p>
@@ -167,6 +197,9 @@
         </div>
     </footer>
 
+    <!-- ==========================================================================
+         5. SCRIPTS (JAVASCRIPT)
+         ========================================================================== -->
     <script src="js/codigo.js"></script>
 </body>
 </html>
