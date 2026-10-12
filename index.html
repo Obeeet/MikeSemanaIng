@@ -6,200 +6,218 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Semana de la Ingeniería</title>
 
-    <!-- ==========================================================================
-         HOJAS DE ESTILO (CSS)
-         ========================================================================== -->
-    <!-- 1. Normalize: Unifica los estilos base en todos los navegadores -->
+    <!-- Hojas de estilo base y personalizadas -->
     <link rel="stylesheet" href="css/normalize.css">
-    <!-- 2. Skeleton: Framework ligero que nos da el sistema de cuadrículas -->
     <link rel="stylesheet" href="css/skeleton.css">
-    <!-- 3. Custom: Nuestros estilos y colores personalizados -->
     <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Bootstrap CSS (Para modales, offcanvas y alertas) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ==========================================================================
-         1. HEADER Y CARRITO DE COMPRAS
-         ========================================================================== -->
-    <header id="header" class="header">
-        <div class="container">
-            <div class="row header-flex">
-                
-                <!-- Sección Izquierda: Logo Institucional -->
-                <div class="six columns logos-universidad">
-                    <img src="img/logo_fes.png" alt="FES Aragón" class="logo-header">
-                </div>
+<!-- HEADER Y CARRITO -->
+<header id="header" class="header">
+    <div class="container">
+        <div class="row header-flex align-items-center">
+            <div class="six columns logos-universidad">
+                <img src="img/logo_fes.png" alt="FES Aragón" class="logo-header">
+            </div>
 
-                <!-- Sección Derecha: Menú del Carrito Desplegable -->
-                <div class="six columns">
-                    <ul class="u-pull-right menu-carrito">
-                        <li class="submenu">
-                            <img src="img/carrito.png" id="img-carrito" class="icono-carrito">
-                            
-                            <!-- Contenedor oculto -->
-                            <div id="carrito">
-                                <table id="lista-carrito" class="u-full-width">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th>Cantidad</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
+            <div class="six columns text-end">
+                <ul class="u-pull-right menu-carrito mb-0 d-flex align-items-center justify-content-end">
+                    <li class="submenu position-relative">
+                        <!-- Ícono del carrito que abre el menú lateral -->
+                        <img src="img/carrito.png" id="img-carrito" class="icono-carrito" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvas" style="cursor: pointer; width: 35px;">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- ==========================================================================
-         2. SECCIÓN PRINCIPAL (HERO)
-         ========================================================================== -->
-    <div id="hero" class="container hero-section">
-        <div class="row hero-content-wrapper">
-            
-            <!-- Mitad Izquierda: Textos de bienvenida y beneficios -->
-            <div class="six columns info-hero">
-                <p class="subtitulo-dorado">OFERTA DE</p>
-                <h1 class="titulo-principal">CONFERENCIAS<br>INGENIERÍA</h1>
-                <p class="descripcion-hero">UNAM | FES Aragón | División de las Ciencias Físico-Matemáticas y de las Ingenierías</p>
-                
-                <!-- Lista de beneficios con iconos -->
-                <div class="beneficios">
-                    <div class="beneficio">
-                        <img src="img/aprende.png" class="icono-beneficio" alt="aprende">
-                        <span class="texto-beneficio">Aprende</span>
-                        <span class="separador-beneficio">|</span>
-                    </div>
-                    <div class="beneficio">
-                        <img src="img/escucha.png" class="icono-beneficio" alt="escucha">
-                        <span class="texto-beneficio">Escucha</span>
-                        <span class="separador-beneficio">|</span>
-                    </div>
-                    <div class="beneficio">
-                        <img src="img/participa.png" class="icono-beneficio" alt="participa">
-                        <span class="texto-beneficio">Participa</span>
-                    </div>
+<!-- HERO -->
+<div id="hero" class="container hero-section">
+    <div class="row hero-content-wrapper">
+        <div class="six columns info-hero">
+            <p class="subtitulo-dorado">OFERTA DE</p>
+            <h1 class="titulo-principal">CONFERENCIAS<br>INGENIERÍA</h1>
+            <p class="descripcion-hero">UNAM | FES Aragón | División de las Ciencias Físico-Matemáticas y de las Ingenierías</p>
+            <div class="beneficios">
+                <div class="beneficio"><img src="img/aprende.png" class="icono-beneficio" alt="aprende"><span class="texto-beneficio">Aprende</span><span class="separador-beneficio">|</span></div>
+                <div class="beneficio"><img src="img/escucha.png" class="icono-beneficio" alt="escucha"><span class="texto-beneficio">Escucha</span><span class="separador-beneficio">|</span></div>
+                <div class="beneficio"><img src="img/participa.png" class="icono-beneficio" alt="participa"><span class="texto-beneficio">Participa</span></div>
+            </div>
+        </div>
+        <div class="six columns grafico-hero">
+            <div class="contenedor-imagen-curva">
+                <img src="img/auditorio.png" alt="Auditorio DUACyD" class="imagen-auditorio u-full-width">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CARTELERA DE CONFERENCIAS -->
+<div id="lista-conferencias" class="container">
+    <!-- Fila 1 -->
+    <div class="row">
+        <div class="four columns">
+            <div class="card">
+                <img src="img/ciberseguridad.png" class="imagen-curso u-full-width">
+                <div class="info-card">
+                    <h4>Ciberseguridad y prevención</h4>
+                    <p>BBVA</p>
+                    <p>Auditorio DUACyD</p>
+                    <p>Martes 22 | 5:00 pm a 6:00 pm</p>
+                    <img src="img/estrellas.png" class="estrellas">
+                    <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                    <a href="#" class="u-full-width button-primary button input agregar-carrito add-to-cart" data-id="1" data-name="Ciberseguridad y prevención" data-price="75">Agregar Al Carrito</a>
                 </div>
             </div>
-            
-            <!-- Mitad Derecha: Imagen panorámica con recorte curvo -->
-            <div class="six columns grafico-hero">
-                <div class="contenedor-imagen-curva">
-                     <img src="img/auditorio.png" alt="Auditorio DUACyD" class="imagen-auditorio u-full-width">
+        </div>
+        <div class="four columns">
+            <div class="card">
+                <img src="img/digitalizacion.png" class="imagen-curso u-full-width">
+                <div class="info-card">
+                    <h4>Digitalización</h4>
+                    <p>BBVA</p>
+                    <p>Auditorio DUACyD</p>
+                    <p>Martes 22 | 6:00 pm a 7:00 pm</p>
+                    <img src="img/estrellas.png" class="estrellas">
+                    <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                    <a href="#" class="u-full-width button-primary button input agregar-carrito add-to-cart" data-id="2" data-name="Digitalización" data-price="75">Agregar Al Carrito</a>
                 </div>
             </div>
-            
+        </div>
+        <div class="four columns">
+            <div class="card">
+                <img src="img/la_ia.png" class="imagen-curso u-full-width">
+                <div class="info-card">
+                    <h4>La IA y tu dinero</h4>
+                    <p>BBVA</p>
+                    <p>Auditorio DUACyD</p>
+                    <p>Miércoles 23 | 5:00 pm a 6:00 pm</p>
+                    <img src="img/estrellas.png" class="estrellas">
+                    <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                    <a href="#" class="u-full-width button-primary button input agregar-carrito add-to-cart" data-id="3" data-name="La IA y tu dinero" data-price="75">Agregar Al Carrito</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ==========================================================================
-         3. CARTELERA DE CONFERENCIAS (TARJETAS)
-         ========================================================================== -->
-    <div id="lista-conferencias" class="container">
-        
-        <!-- --- PRIMERA FILA --- -->
-        <div class="row">
-            
-            <!-- Tarjeta 1 -->
-            <div class="four columns">
-                <div class="card">
-                    <img src="img/ciberseguridad.png" class="imagen-curso u-full-width">
-                    <div class="info-card">
-                        <h4>Ciberseguridad y prevención</h4>
-                        <p>BBVA</p>
-                        <p>Auditorio DUACyD</p>
-                        <p>Martes 22 | 5:00 pm a 6:00 pm</p>
-                        <img src="img/estrellas.png" class="estrellas">
-                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
-                        <!-- El atributo data-id es crucial para que JS identifique qué curso se agregó -->
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
-                    </div>
+    <!-- Fila 2 -->
+    <div class="row">
+        <div class="four columns">
+            <div class="card">
+                <img src="img/sostenibilidad.png" class="imagen-curso u-full-width">
+                <div class="info-card">
+                    <h4>Sostenibilidad en los datos</h4>
+                    <p>Dr. Omar Mendoza</p>
+                    <p>Auditorio DUACyD</p>
+                    <p>Jueves 24 | 1:30 pm a 3:00 pm</p>
+                    <img src="img/estrellas.png" class="estrellas">
+                    <p class="precio">$100 <span class="u-pull-right">$75</span></p>
+                    <a href="#" class="u-full-width button-primary button input agregar-carrito add-to-cart" data-id="4" data-name="Sostenibilidad en los datos" data-price="75">Agregar Al Carrito</a>
                 </div>
-            </div>
-            
-            <!-- Tarjeta 2 -->
-            <div class="four columns">
-                <div class="card">
-                    <img src="img/digitalizacion.png" class="imagen-curso u-full-width">
-                    <div class="info-card">
-                        <h4>Digitalización</h4>
-                        <p>BBVA</p>
-                        <p>Auditorio DUACyD</p>
-                        <p>Martes 22 | 6:00 pm a 7:00 pm</p>
-                        <img src="img/estrellas.png" class="estrellas">
-                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Tarjeta 3 -->
-            <div class="four columns">
-                <div class="card">
-                    <img src="img/la_ia.png" class="imagen-curso u-full-width">
-                    <div class="info-card">
-                        <h4>La IA y tu dinero</h4>
-                        <p>BBVA</p>
-                        <p>Auditorio DUACyD</p>
-                        <p>Miércoles 23 | 5:00 pm a 6:00 pm</p>
-                        <img src="img/estrellas.png" class="estrellas">
-                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div> <!-- FIN PRIMERA FILA -->
-
-        <!-- --- SEGUNDA FILA --- -->
-        <div class="row">
-            
-            <!-- Tarjeta 4 -->
-            <div class="four columns">
-                <div class="card">
-                    <img src="img/sostenibilidad.png" class="imagen-curso u-full-width">
-                    <div class="info-card">
-                        <h4>Sostenibilidad en los datos</h4>
-                        <p>Dr. Omar Mendoza</p>
-                        <p>Auditorio DUACyD</p>
-                        <p>Jueves 24 | 1:30 pm a 3:00 pm</p>
-                        <img src="img/estrellas.png" class="estrellas">
-                        <p class="precio">$100 <span class="u-pull-right">$75</span></p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar Al Carrito</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div> <!-- FIN SEGUNDA FILA -->
-    </div>
-    
-    <!-- ==========================================================================
-         4. PIE DE PÁGINA (FOOTER)
-         ========================================================================== -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <p>Integrantes:</p>
-                <p>Obet Pérez Hernández</p>
-                <p>David Hernández Reyes</p>
-                <p>Ana Guadalupe Martínez Colón</p>
-                <p>Equipo 9</p>
             </div>
         </div>
-    </footer>
+    </div>
+</div>
 
-    <!-- ==========================================================================
-         5. SCRIPTS (JAVASCRIPT)
-         ========================================================================== -->
-    <script src="js/codigo.js"></script>
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <p>Integrantes:</p>
+            <p>Obet Pérez Hernández</p>
+            <p>David Hernández Reyes</p>
+            <p>Ana Guadalupe Martínez Colón</p>
+            <p>Equipo 9</p>
+        </div>
+    </div>
+</footer>
+
+<!-- MODALES Y OFFCANVAS (VENTANAS) -->
+
+<!-- Menú lateral del Carrito -->
+<div class="offcanvas offcanvas-end shadow" id="carritoOffcanvas" tabindex="-1">
+    <div class="offcanvas-header bg-light border-bottom">
+        <h5 class="offcanvas-title fw-bold">Tu Carrito 🛒</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+        <ul id="cart-items" class="list-group mb-3 flex-grow-1 overflow-auto"></ul>
+        <div class="mt-auto border-top pt-3">
+            <h4 class="text-end fw-bold mb-3">Total: $<span id="cart-total">0.00</span></h4>
+            <button class="btn btn-success w-100 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#pagoModal" id="btn-proceder-pago" disabled>
+                Proceder al Pago
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Simulador de Pago (Asegúrate de tener bbva.png, nu.png y santander.png en tu carpeta img) -->
+<div class="modal fade" id="pagoModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold">Simulador de Pago</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <p class="text-center mb-4 fw-bold">Selecciona tu método de pago:</p>
+                <div class="d-flex justify-content-around mb-4">
+                    <label>
+                        <input type="radio" name="tarjeta" value="BBVA" class="d-none tarjeta-radio">
+                        <img src="img/bbva.png" alt="BBVA" class="img-thumbnail tarjeta-img shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 8px;">
+                    </label>
+                    <label>
+                        <input type="radio" name="tarjeta" value="Nu" class="d-none tarjeta-radio">
+                        <img src="img/nu.png" alt="Nu" class="img-thumbnail tarjeta-img shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 8px;">
+                    </label>
+                    <label>
+                        <input type="radio" name="tarjeta" value="Santander" class="d-none tarjeta-radio">
+                        <img src="img/santander.png" alt="Santander" class="img-thumbnail tarjeta-img shadow-sm" style="width: 90px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 8px;">
+                    </label>
+                </div>
+                <div id="error-pago" class="text-danger text-center fw-bold d-none mb-2">⚠ Por favor selecciona una tarjeta para continuar.</div>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-primary w-100 py-2 fw-bold" id="btn-pagar">
+                    Pagar $<span id="modal-total">0.00</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comprobante de Pago -->
+<div class="modal fade" id="comprobanteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center shadow-lg border-0">
+            <div class="modal-body py-5">
+                <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                    <span style="font-size: 40px;">✔</span>
+                </div>
+                <h3 class="fw-bold mb-3">¡Pago Exitoso!</h3>
+                <p class="text-muted mb-4">Tu comprobante de pago ha sido generado correctamente.</p>
+                <div class="border p-4 mb-4 text-start bg-light rounded shadow-sm">
+                    <p class="mb-2 fs-5"><strong>Método:</strong> <span id="comprobante-tarjeta" class="text-primary"></span></p>
+                    <p class="mb-2 fs-5"><strong>Total Pagado:</strong> $<span id="comprobante-total" class="fw-bold"></span></p>
+                    <p class="mb-0 fs-5 text-secondary"><strong>Folio de orden:</strong> #<span id="comprobante-folio"></span></p>
+                </div>
+                <button type="button" class="btn btn-outline-success fw-bold px-4 py-2" data-bs-dismiss="modal">Seguir Comprando</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (Obligatorio) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script principal de tu aplicación -->
+<script type="module" src="js/app.js"></script>
+
 </body>
 </html>
