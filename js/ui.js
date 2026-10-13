@@ -20,7 +20,7 @@ export function actualizarCarritoHTML(carrito) {
         cartItemsModal.innerHTML += `
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <img src="${curso.imagen}" width="50" class="me-3 rounded" alt="${curso.titulo}">
+                    <img src="${curso.imagen}" class="cart-item-img me-3 rounded" alt="${curso.titulo}">
                     <div>
                         <h6 class="my-0 fw-bold">${curso.titulo}</h6>
                         <small class="text-muted">$${curso.precio} x ${curso.cantidad}</small>

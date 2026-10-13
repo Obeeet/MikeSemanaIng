@@ -3,6 +3,7 @@
    ========================================================================== */
 html {
     font-size: 62.5%; 
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -29,6 +30,12 @@ header {
     header {
         text-align: left;
     }
+}
+
+header#header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
 }
 
 /* Fuerza al header a abarcar toda la pantalla */
@@ -101,6 +108,29 @@ header .container {
     color: white;
     font-weight: bold;
 }
+
+#carritoOffcanvas {
+    width: 480px;          
+    max-width: 100vw;
+}
+#carritoOffcanvas .offcanvas-title { font-size: 22px; }
+
+#carritoOffcanvas .list-group-item {
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+#carritoOffcanvas .cart-item-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+#carritoOffcanvas .list-group-item h6 { font-size: 18px; line-height: 1.3; margin-bottom: 6px; }
+#carritoOffcanvas .list-group-item small { font-size: 16px; }
+#carritoOffcanvas .borrar-curso-offcanvas { font-size: 16px; padding: 8px 14px; }
+#carritoOffcanvas h4 { font-size: 24px; }
+#carritoOffcanvas #btn-proceder-pago { font-size: 18px; padding: 14px; }
 
 /* ==========================================================================
    3. SECCIÓN HERO (PRINCIPAL)
@@ -312,7 +342,226 @@ header .container {
 }
 
 /* ==========================================================================
-   5. FOOTER
+   5. DESCRIPCIÓN AL PASAR EL CURSOR EN LAS TARJETAS
+   ========================================================================== */
+.card {
+    position: relative;      /* para posicionar el cuadro respecto a la tarjeta */
+}
+
+.card:hover {
+    z-index: 20;             /* la tarjeta activa (y su cuadro) quedan sobre las vecinas */
+}
+
+.descripcion-hover {
+    position: absolute;
+    top: 0;
+    left: 100%;              /* a la derecha de la tarjeta */
+    margin-left: 18px;
+    width: 280px;
+    padding: 22px 24px;
+    background-color: #0b2343;
+    border-top: 4px solid #c29b62;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(11, 35, 67, 0.35);
+
+    /* oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    pointer-events: none;
+}
+
+.card:hover .descripcion-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Flechita que apunta a la tarjeta */
+.descripcion-hover::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: -10px;
+    border: 10px solid transparent;
+    border-left: 0;
+    border-right-color: #0b2343;
+}
+
+.descripcion-etiqueta {
+    display: block;
+    margin-bottom: 10px;
+    color: #c29b62;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.descripcion-hover p {
+    margin: 0;
+    color: #e1d8c1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Las tarjetas de la 3.ª columna abren el cuadro hacia la IZQUIERDA
+   para que no se salga de la pantalla */
+.row > .four.columns:nth-child(3n) .descripcion-hover {
+    left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-right: 18px;
+    transform: translateX(10px);
+}
+
+.row > .four.columns:nth-child(3n) .card:hover .descripcion-hover {
+    transform: translateX(0);
+}
+
+.row > .four.columns:nth-child(3n) .descripcion-hover::before {
+    left: auto;
+    right: -10px;
+    border: 10px solid transparent;
+    border-right: 0;
+    border-left-color: #0b2343;
+}
+
+/* En celulares / pantallas táctiles no hay hover, así que se oculta */
+@media (max-width: 899px), (hover: none) {
+    .descripcion-hover {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   6. CARRUSEL
+   ========================================================================== */
+.seccion-carrusel {
+    padding: 60px 0;
+    border-bottom: 2px solid #e1d8c1;
+    text-align: center;
+}
+
+.titulo-seccion {
+    color: #0b2343;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.carrusel-semana {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(11, 35, 67, 0.25);
+}
+
+.carrusel-semana .carousel-inner {
+    border-radius: 40px;
+}
+
+.carrusel-semana .carousel-item img {
+    height: 450px;
+    object-fit: cover;
+}
+
+/* Degradado azul marino abajo para que el texto se lea bien */
+.carrusel-semana .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 35, 67, 0.9) 0%, rgba(11, 35, 67, 0) 60%);
+    pointer-events: none;
+}
+
+/* Texto de cada slide */
+.carrusel-semana .carousel-caption {
+    z-index: 2;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    text-align: left;
+}
+
+.carrusel-semana .carousel-caption h5 {
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.carrusel-semana .carousel-caption p {
+    font-size: 16px;
+    color: #e1d8c1;
+    margin-bottom: 0;
+}
+
+/* Botones anterior / siguiente: círculos azules con borde dorado */
+.carrusel-semana .carousel-control-prev,
+.carrusel-semana .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    margin: 0 20px;
+    padding: 0;
+    background-color: #0b2343;
+    border: 2px solid #c29b62;
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.carrusel-semana .carousel-control-prev:hover,
+.carrusel-semana .carousel-control-next:hover {
+    background-color: #c29b62;
+    opacity: 1;
+}
+
+.carrusel-semana .carousel-control-prev-icon,
+.carrusel-semana .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Indicadores dorados */
+.carrusel-semana .carousel-indicators {
+    margin-bottom: 14px;
+}
+
+.carrusel-semana .carousel-indicators button {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 0;
+    background-color: #c29b62;
+    border: 0;
+    border-radius: 2px;
+}
+
+/* Skeleton le mete margen y estilos a todos los <button>; esto lo anula */
+.carrusel-semana button {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+@media (max-width: 600px) {
+    .titulo-seccion { font-size: 2.4rem; }
+    .carrusel-semana,
+    .carrusel-semana .carousel-inner { border-radius: 20px; }
+    .carrusel-semana .carousel-item img { height: 260px; }
+    .carrusel-semana .carousel-caption { left: 20px; right: 20px; bottom: 40px; }
+    .carrusel-semana .carousel-caption h5 { font-size: 18px; }
+    .carrusel-semana .carousel-caption p { display: none; }
+}
+
+/* ==========================================================================
+   7. FOOTER
    ========================================================================== */
 footer {
     background-color: white;
@@ -328,3 +577,31 @@ footer p {
     font-weight: bold;
     font-size: 1.4rem;
 }
+
+/* ==========================================================================
+   8. MODAL DE PAGO
+   ========================================================================== */
+
+/* Barra del título */
+#pagoModal .modal-header.bg-primary {
+    background-color: #33C3F0 !important;   /* azul marino */
+}
+
+
+
+/* Botón "Pagar" */
+#pagoModal #btn-pagar {
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px;
+}
+
+#pagoModal #btn-pagar:hover,
+#pagoModal #btn-pagar:focus {
+    background-color: #a8844f;
+    border-color: #a8844f;
+}
+
+    
